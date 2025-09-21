@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 // Google Analytics tracking ID - replace with your actual ID
 const GA_TRACKING_ID = 'G-XXXXXXXXXX'
@@ -46,15 +46,12 @@ export const plausibleEvent = (eventName: string, props?: Record<string, any>) =
 
 export function Analytics() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
-    const url = pathname + searchParams.toString()
-    
     // Track page views
-    trackPageView(url)
+    trackPageView(pathname)
     plausibleEvent('pageview')
-  }, [pathname, searchParams])
+  }, [pathname])
 
   return (
     <>

@@ -20,7 +20,7 @@ import {
   ArrowRight,
   Smartphone,
   Brain,
-  Automation,
+  Workflow,
   TrendingUp,
   Shield,
   Heart,

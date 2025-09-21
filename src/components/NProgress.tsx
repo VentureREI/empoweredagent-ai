@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import NProgressLib from 'nprogress'
 
 // Configure NProgress
@@ -75,7 +75,6 @@ const nprogressStyles = `
 
 export function NProgress() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     // Inject custom styles
@@ -103,7 +102,7 @@ export function NProgress() {
       clearTimeout(timer)
       NProgressLib.done()
     }
-  }, [pathname, searchParams])
+  }, [pathname])
 
   // Handle manual navigation events
   useEffect(() => {
