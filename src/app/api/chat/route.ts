@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 import { agents } from '@/lib/agents'
 
 export async function POST(request: NextRequest) {
+  let slug = ''
+  let messages: any[] = []
+
   try {
-    const { slug, messages } = await request.json()
+    const body = await request.json()
+    slug = body.slug
+    messages = body.messages
 
     // Find the agent by slug
     const agent = agents.find(a => a.slug === slug)
