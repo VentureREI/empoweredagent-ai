@@ -20,22 +20,28 @@ export async function POST(request: NextRequest) {
     }
 
     // Call OpenAI API
+    console.log('Making OpenAI API call...')
+    const requestBody = {
+      model: 'gpt-4o-mini',
+      messages: [
+        { role: 'system', content: agent.systemPrompt },
+        ...messages
+      ],
+      temperature: 0.7,
+      max_tokens: 1000,
+    }
+    console.log('Request body:', JSON.stringify(requestBody, null, 2))
+
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
       },
-      body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [
-          { role: 'system', content: agent.systemPrompt },
-          ...messages
-        ],
-        temperature: 0.7,
-        max_tokens: 1000,
-      }),
+      body: JSON.stringify(requestBody),
     })
+
+    console.log('OpenAI response status:', response.status)
 
     if (!response.ok) {
       const errorData = await response.json()
@@ -51,9 +57,15 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Chat API Error:', error)
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
+    console.error('Environment check - API Key exists:', !!process.env.OPENAI_API_KEY)
+    console.error('Agent slug:', slug)
+    console.error('Messages count:', messages?.length)
+
     return NextResponse.json({
       error: 'Internal server error',
-      details: error instanceof Error ? error.message : 'Unknown error'
+      details: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
     }, { status: 500 })
   }
 }
