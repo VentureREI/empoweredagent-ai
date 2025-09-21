@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
 
     // Check for OpenAI API key
     if (!process.env.OPENAI_API_KEY) {
+      console.error('Missing OPENAI_API_KEY environment variable')
       return NextResponse.json({
         error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.'
       }, { status: 500 })
