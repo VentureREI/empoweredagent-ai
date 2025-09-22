@@ -103,21 +103,22 @@ export default function AgentPage() {
       <div className="bg-white/10 backdrop-blur-sm border-b border-white/20">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4 min-w-0 flex-1">
               <Link href="/agents">
-                <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Agents
+                <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 flex-shrink-0">
+                  <ArrowLeft className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Back to Agents</span>
                 </Button>
               </Link>
-              <div className="text-2xl">{agent.icon}</div>
-              <div>
-                <h1 className="text-xl font-bold text-white">{agent.name}</h1>
-                <p className="text-sm text-gray-300">{agent.tagline}</p>
+              <div className="text-xl sm:text-2xl flex-shrink-0">{agent.icon}</div>
+              <div className="min-w-0 flex-1">
+                <h1 className="text-lg sm:text-xl font-bold text-white truncate">{agent.name}</h1>
+                <p className="text-xs sm:text-sm text-gray-300 truncate">{agent.tagline}</p>
               </div>
             </div>
-            <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${agent.color} text-white text-sm font-medium`}>
-              AI Assistant
+            <div className={`px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r ${agent.color} text-white text-xs sm:text-sm font-medium flex-shrink-0`}>
+              <span className="hidden sm:inline">AI Assistant</span>
+              <span className="sm:hidden">AI</span>
             </div>
           </div>
         </div>
@@ -133,16 +134,16 @@ export default function AgentPage() {
               <h2 className="text-2xl font-bold text-white mb-2">Hi! I'm {agent.name}</h2>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto">{agent.tagline}</p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
                 {agent.starterPrompts.map((prompt, index) => (
                   <button
                     key={index}
                     onClick={() => useStarterPrompt(prompt)}
-                    className="p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200 text-left group"
+                    className="p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200 text-left group"
                   >
-                    <div className="flex items-start space-x-3">
-                      <Sparkles className="w-5 h-5 text-purple-400 mt-0.5 group-hover:text-purple-300" />
-                      <p className="text-sm text-gray-300 group-hover:text-white">{prompt}</p>
+                    <div className="flex items-start space-x-2 sm:space-x-3">
+                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 mt-0.5 group-hover:text-purple-300 flex-shrink-0" />
+                      <p className="text-xs sm:text-sm text-gray-300 group-hover:text-white leading-relaxed">{prompt}</p>
                     </div>
                   </button>
                 ))}
@@ -153,24 +154,24 @@ export default function AgentPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} px-2 sm:px-0`}
             >
               <div
-                className={`max-w-3xl px-4 py-3 rounded-lg ${
+                className={`max-w-[85%] sm:max-w-3xl px-3 sm:px-4 py-2 sm:py-3 rounded-lg ${
                   message.role === 'user'
                     ? 'bg-blue-600 text-white'
                     : 'bg-white/10 backdrop-blur-sm text-white border border-white/20'
                 }`}
               >
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-2 sm:space-x-3">
                   {message.role === 'assistant' && (
-                    <div className="text-lg mt-0.5">{agent.icon}</div>
+                    <div className="text-base sm:text-lg mt-0.5 flex-shrink-0">{agent.icon}</div>
                   )}
                   {message.role === 'user' && (
-                    <User className="w-5 h-5 mt-0.5" />
+                    <User className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
                   )}
-                  <div className="flex-1">
-                    <div className="whitespace-pre-wrap">{message.content}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="whitespace-pre-wrap text-sm sm:text-base break-words">{message.content}</div>
                   </div>
                 </div>
               </div>
@@ -196,27 +197,29 @@ export default function AgentPage() {
         </div>
 
         {/* Input */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-4">
-          <div className="flex space-x-4">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-3 sm:p-4">
+          <div className="flex space-x-2 sm:space-x-4">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder={`Message ${agent.name}...`}
-              className="flex-1 bg-transparent text-white placeholder-gray-400 resize-none outline-none min-h-[60px] max-h-32"
+              className="flex-1 bg-transparent text-white placeholder-gray-400 resize-none outline-none min-h-[50px] sm:min-h-[60px] max-h-32 text-sm sm:text-base"
               disabled={isLoading}
             />
             <Button
               onClick={sendMessage}
               disabled={!input.trim() || isLoading}
-              className="self-end"
+              className="self-end flex-shrink-0"
+              size="sm"
             >
               <Send className="w-4 h-4" />
             </Button>
           </div>
-          <div className="flex justify-between items-center mt-2 text-sm text-gray-400">
-            <span>Press Enter to send, Shift+Enter for new line</span>
-            <div className="flex items-center space-x-2">
+          <div className="flex justify-between items-center mt-2 text-xs sm:text-sm text-gray-400">
+            <span className="hidden sm:inline">Press Enter to send, Shift+Enter for new line</span>
+            <span className="sm:hidden">Enter to send</span>
+            <div className="flex items-center space-x-1 sm:space-x-2">
               <div className="w-2 h-2 bg-green-400 rounded-full" />
               <span>Online</span>
             </div>

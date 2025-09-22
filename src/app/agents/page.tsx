@@ -36,7 +36,7 @@ export default function AgentsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
           >
             Choose Your
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 block">
@@ -48,7 +48,7 @@ export default function AgentsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12"
+            className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-4"
           >
             Experience our specialized AI agents in action. Each assistant is trained on real estate expertise
             and ready to help with specific tasks. Click any agent below to start a live conversation.
@@ -60,7 +60,7 @@ export default function AgentsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto mb-12 sm:mb-16"
         >
           {agents.map((agent, index) => (
             <Link key={agent.slug} href={`/agents/${agent.slug}`}>
@@ -72,17 +72,17 @@ export default function AgentsPage() {
                 onHoverEnd={() => setHoveredAgent(null)}
                 className="group cursor-pointer"
               >
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
                   {/* Agent Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${agent.color} rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${agent.color} rounded-xl flex items-center justify-center text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     {agent.icon}
                   </div>
 
                   {/* Agent Info */}
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
                     {agent.name}
                   </h3>
-                  <p className="text-sm text-gray-300 mb-4 line-clamp-2">
+                  <p className="text-sm text-gray-300 mb-3 sm:mb-4 line-clamp-2">
                     {agent.tagline}
                   </p>
 
