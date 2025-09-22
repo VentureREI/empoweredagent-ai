@@ -41,53 +41,53 @@ import { LeadFormModal, LeadFormData } from '@/components/modals/LeadFormModal'
 const pricingPlans = [
   {
     id: 'starter',
-    name: 'Solo Starter',
-    description: 'Perfect for new agents getting started',
-    price: 97,
-    originalPrice: 147,
+    name: 'AI Starter',
+    description: 'Essential AI automation for growing agents',
+    price: 497,
+    originalPrice: 697,
     period: 'month',
     badge: null,
     color: 'from-blue-500 to-blue-600',
     popular: false,
-    savings: 'Save $50/month',
+    savings: 'Save $200/month',
     features: {
       leadGeneration: {
         aiLeadResponse: true,
-        responseTime: '< 5 minutes',
-        leadSources: 3,
-        monthlyLeads: 50,
-        qualification: 'Basic'
+        responseTime: '< 2 hours',
+        leadSources: 'Facebook, Google, Zillow',
+        monthlyLeads: 100,
+        qualification: 'AI-powered'
       },
       clientManagement: {
-        contacts: 500,
-        automation: 'Basic workflows',
+        contacts: 1000,
+        automation: 'Lead nurturing workflows',
         reminders: true,
-        customFields: 10
+        customFields: 25
       },
       marketing: {
-        socialPosts: 10,
-        emailTemplates: 25,
-        marketReports: 'Monthly',
-        brandedMaterials: 'Basic'
+        socialPosts: 'AI-generated content',
+        emailTemplates: 'Custom templates',
+        marketReports: 'Weekly',
+        brandedMaterials: 'Professional'
       },
       analytics: {
-        dashboard: 'Standard',
-        reports: 'Basic',
-        insights: false,
+        dashboard: 'Business insights',
+        reports: 'ROI tracking',
+        insights: true,
         forecasting: false
       },
       support: {
-        type: 'Email',
+        type: 'Email & Chat',
         hours: 'Business hours',
-        onboarding: '1 hour',
-        training: 'Self-service'
+        onboarding: '2 hours setup',
+        training: 'Live training'
       }
     },
     limits: {
-      transactions: 20,
-      integrations: 3,
+      transactions: 'Up to 5 closings/month',
+      integrations: 'CRM + 2 tools',
       users: 1,
-      storage: '5GB'
+      storage: 'Unlimited'
     },
     guarantee: '30-day money back',
     setupFee: 0,
@@ -95,53 +95,53 @@ const pricingPlans = [
   },
   {
     id: 'professional',
-    name: 'Solo Professional',
-    description: 'Most popular for growing solo agents',
-    price: 197,
-    originalPrice: 297,
+    name: 'AI Professional',
+    description: 'Complete automation suite for serious agents',
+    price: 997,
+    originalPrice: 1497,
     period: 'month',
     badge: 'Most Popular',
     color: 'from-purple-500 to-purple-600',
     popular: true,
-    savings: 'Save $100/month',
+    savings: 'Save $500/month',
     features: {
       leadGeneration: {
         aiLeadResponse: true,
-        responseTime: '< 3 minutes',
-        leadSources: 'Unlimited',
-        monthlyLeads: 200,
-        qualification: 'Advanced AI'
+        responseTime: '< 30 minutes',
+        leadSources: 'All major platforms',
+        monthlyLeads: 'Unlimited',
+        qualification: 'Advanced AI + SMS'
       },
       clientManagement: {
-        contacts: 2000,
-        automation: 'Advanced workflows',
+        contacts: 'Unlimited',
+        automation: 'Full pipeline automation',
         reminders: true,
-        customFields: 50
+        customFields: 'Unlimited'
       },
       marketing: {
-        socialPosts: 50,
-        emailTemplates: 100,
-        marketReports: 'Weekly',
-        brandedMaterials: 'Professional'
+        socialPosts: 'Daily AI content',
+        emailTemplates: 'Custom campaigns',
+        marketReports: 'Real-time',
+        brandedMaterials: 'Premium designs'
       },
       analytics: {
-        dashboard: 'Advanced',
-        reports: 'Custom',
+        dashboard: 'Advanced metrics',
+        reports: 'Custom reporting',
         insights: true,
-        forecasting: 'Basic'
+        forecasting: 'Predictive AI'
       },
       support: {
-        type: 'Priority',
-        hours: '24/7',
-        onboarding: '3 hours',
-        training: 'Live sessions'
+        type: 'Priority support',
+        hours: 'Business hours',
+        onboarding: 'Full setup (4 hours)',
+        training: 'Weekly coaching calls'
       }
     },
     limits: {
-      transactions: 100,
-      integrations: 10,
-      users: 1,
-      storage: '25GB'
+      transactions: 'Up to 15 closings/month',
+      integrations: 'CRM + 5 tools',
+      users: 'Agent + assistant',
+      storage: 'Unlimited'
     },
     guarantee: '60-day money back',
     setupFee: 0,
@@ -149,53 +149,53 @@ const pricingPlans = [
   },
   {
     id: 'elite',
-    name: 'Solo Elite',
-    description: 'For top-performing luxury agents',
-    price: 397,
-    originalPrice: 597,
+    name: 'AI Elite',
+    description: 'Enterprise-grade AI automation for top producers',
+    price: 1997,
+    originalPrice: 2997,
     period: 'month',
     badge: 'Elite',
     color: 'from-yellow-500 to-yellow-600',
     popular: false,
-    savings: 'Save $200/month',
+    savings: 'Save $1000/month',
     features: {
       leadGeneration: {
         aiLeadResponse: true,
-        responseTime: '< 60 seconds',
-        leadSources: 'Unlimited',
+        responseTime: '< 15 minutes',
+        leadSources: 'All platforms + custom',
         monthlyLeads: 'Unlimited',
-        qualification: 'AI + Human'
+        qualification: 'AI + Human team'
       },
       clientManagement: {
         contacts: 'Unlimited',
-        automation: 'Custom workflows',
+        automation: 'Enterprise workflows',
         reminders: true,
         customFields: 'Unlimited'
       },
       marketing: {
-        socialPosts: 'Unlimited',
-        emailTemplates: 'Custom',
-        marketReports: 'Daily',
-        brandedMaterials: 'Luxury'
+        socialPosts: 'Professional content team',
+        emailTemplates: 'Custom brand campaigns',
+        marketReports: 'Real-time + custom',
+        brandedMaterials: 'Luxury brand package'
       },
       analytics: {
-        dashboard: 'Executive',
-        reports: 'White-label',
-        insights: 'Predictive AI',
-        forecasting: 'Advanced'
+        dashboard: 'Executive dashboard',
+        reports: 'White-label reporting',
+        insights: 'AI + market intelligence',
+        forecasting: 'Advanced predictive'
       },
       support: {
-        type: 'Dedicated manager',
-        hours: '24/7 priority',
-        onboarding: 'Full setup',
-        training: 'Personal coach'
+        type: 'Dedicated success manager',
+        hours: 'Priority access',
+        onboarding: 'Done-for-you setup',
+        training: 'Personal business coach'
       }
     },
     limits: {
-      transactions: 'Unlimited',
-      integrations: 'Unlimited',
-      users: 3,
-      storage: '100GB'
+      transactions: 'Unlimited closings',
+      integrations: 'Unlimited + custom',
+      users: 'Full team (up to 5)',
+      storage: 'Unlimited'
     },
     guarantee: '90-day money back',
     setupFee: 0,
@@ -372,27 +372,27 @@ const comparisonFeatures = [
 
 const addOns = [
   {
-    name: 'Professional Photography',
-    description: 'AI-enhanced listing photography',
-    price: 49,
-    period: 'per listing'
+    name: 'AI Chatbot Training',
+    description: 'Custom AI training for your specific market',
+    price: 497,
+    period: 'one-time'
   },
   {
-    name: 'Video Marketing Suite',
-    description: 'Automated video content creation',
-    price: 97,
+    name: 'Advanced Lead Scoring',
+    description: 'Machine learning lead qualification',
+    price: 197,
     period: 'month'
   },
   {
-    name: 'Advanced Integrations',
-    description: 'Custom CRM and MLS integrations',
-    price: 147,
-    period: 'month'
-  },
-  {
-    name: 'Personal Brand Building',
-    description: 'Comprehensive brand development',
+    name: 'Custom Integrations',
+    description: 'Connect any CRM, MLS, or business tool',
     price: 297,
+    period: 'month'
+  },
+  {
+    name: 'Done-For-You Setup',
+    description: 'Complete hands-off implementation',
+    price: 997,
     period: 'one-time'
   }
 ]
@@ -516,7 +516,7 @@ export function SoloAgentPricing() {
             className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full text-white text-sm font-bold mb-12"
           >
             <Sparkles className="w-5 h-5 mr-2" />
-            Limited Time: Save up to $200/month on all plans!
+            Limited Time: Save up to $1000/month on AI automation!
           </motion.div>
         </motion.div>
 
