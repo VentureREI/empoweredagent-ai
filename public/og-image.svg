@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#4c1d95"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Logo/Brand -->
+  <circle cx="200" cy="200" r="30" fill="#7c3aed"/>
+  <text x="250" y="210" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">EmpoweredAgent.ai</text>
+
+  <!-- Main Title -->
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    Intelligent AI Agents
+  </text>
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    for Business Automation
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="24" fill="#a78bfa" text-anchor="middle">
+    Transform your workflow with AI that works for you
+  </text>
+
+  <!-- Bot Icon -->
+  <rect x="920" y="400" width="60" height="60" rx="15" fill="#7c3aed"/>
+  <circle cx="935" cy="420" r="5" fill="white"/>
+  <circle cx="965" cy="420" r="5" fill="white"/>
+  <rect x="930" y="440" width="40" height="5" rx="2" fill="white"/>
+</svg>

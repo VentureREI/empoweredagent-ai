@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: 'EmpoweredAgent.ai',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.svg',
         width: 1200,
         height: 630,
         alt: 'EmpoweredAgent.ai - AI Agents Platform',

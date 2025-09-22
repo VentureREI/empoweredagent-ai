@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://empoweredagent.ai'
   const currentDate = new Date().toISOString()
 
-  // Static pages
+  // Static pages - only include pages that actually exist
   const staticPages = [
     {
       url: baseUrl,
@@ -19,76 +19,70 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/agents`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/products/workflow`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/products/analytics`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/products/integrations`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/products/security`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/products/custom`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/products/enterprise`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/solutions`,
+      url: `${baseUrl}/solutions/custom-agents`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/solutions/sales`,
+      url: `${baseUrl}/solutions/custom-agents/process`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/solutions/marketing`,
+      url: `${baseUrl}/solutions/custom-agents/showcase`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/solutions/operations`,
+      url: `${baseUrl}/solutions/workflow-automation`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/solutions/it`,
+      url: `${baseUrl}/solutions/data-analytics`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/solutions/integrations`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/for-agents/solo-agent`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/for-agents/real-estate-team`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/for-agents/real-estate-brokerage`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/pricing`,
@@ -103,142 +97,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/demo`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/signup`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/login`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/team`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/case-studies`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/resources`,
+      url: `${baseUrl}/how-we-work`,
       lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'monthly' as const,
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/docs`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/docs/api`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/help`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/community`,
-      lastModified: currentDate,
-      changeFrequency: 'daily' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/webinars`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/partners`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/investors`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/press`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/status`,
-      lastModified: currentDate,
-      changeFrequency: 'daily' as const,
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cookies`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/data-processing`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/security`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/compliance`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.4,
     },
   ]
 
