@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import TeamHero from '@/components/sections/real-estate-team/TeamHero'
 import TeamFeatures from '@/components/sections/real-estate-team/TeamFeatures'
 import TeamDashboard from '@/components/sections/real-estate-team/TeamDashboard'
 import TeamCollaboration from '@/components/sections/real-estate-team/TeamCollaboration'
@@ -34,7 +33,6 @@ export const metadata: Metadata = {
 export default function RealEstateTeamPage() {
   return (
     <div className="min-h-screen">
-      <TeamHero />
       <TeamFeatures />
       <TeamDashboard />
       <TeamCollaboration />
