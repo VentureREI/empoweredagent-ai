@@ -8,97 +8,91 @@ import { cn } from '@/lib/utils'
 
 const pricingPlans = [
   {
-    id: 'starter',
-    name: 'Starter',
-    description: 'Perfect for small businesses getting started with AI automation',
+    id: 'core',
+    name: 'Core Automation',
+    description: 'AI-powered lead capture, qualification, and follow-up automation',
     icon: Zap,
     price: {
-      monthly: 99,
-      annually: 79
+      monthly: 599,
+      setup: 750
     },
     popular: false,
     features: {
-      agents: '3 AI Agents',
-      tasks: '5,000 monthly tasks',
-      integrations: '10 integrations',
+      setup: '$750 one-time setup',
+      leadCapture: 'AI Lead Capture & Qualification',
+      autoFollowUp: 'Automated Follow-Up Sequences',
+      crmIntegration: 'CRM Integration',
       support: 'Email support',
+      analytics: 'Basic Analytics Dashboard',
+      users: '3 team members',
       uptime: '99.5% SLA',
-      users: '5 team members',
-      storage: '10GB data storage',
-      analytics: 'Basic analytics',
-      workflows: 'Pre-built workflows',
-      customization: 'Limited customization'
+      customization: 'Pre-built templates'
     },
     included: [
-      'agents', 'tasks', 'integrations', 'support', 'uptime', 'users', 'storage', 'analytics', 'workflows'
+      'setup', 'leadCapture', 'autoFollowUp', 'crmIntegration', 'support', 'analytics', 'users', 'uptime'
     ],
     excluded: ['customization'],
-    cta: 'Start Free Trial',
+    cta: 'Get Started',
     badge: null
   },
   {
-    id: 'professional',
-    name: 'Professional',
-    description: 'For growing businesses that need advanced automation capabilities',
+    id: 'growth',
+    name: 'Growth Suite',
+    description: 'Complete lead gen, automation, and AI marketing systems',
     icon: Star,
     price: {
-      monthly: 299,
-      annually: 239
+      monthly: 1499,
+      setup: 1500
     },
     popular: true,
     features: {
-      agents: '10 AI Agents',
-      tasks: '25,000 monthly tasks',
-      integrations: '50 integrations',
-      support: 'Priority support',
+      setup: '$1,500 one-time setup',
+      leadCapture: 'AI Lead Capture & Qualification',
+      autoFollowUp: 'Advanced Follow-Up & Nurturing',
+      crmIntegration: 'Full CRM Integration',
+      aiMarketing: 'AI Marketing Content Suite',
+      support: 'Priority 24-hour support',
+      analytics: 'Advanced Analytics & Reporting',
+      users: '10 team members',
       uptime: '99.9% SLA',
-      users: '25 team members',
-      storage: '100GB data storage',
-      analytics: 'Advanced analytics',
-      workflows: 'Custom workflows',
       customization: 'Full customization',
-      api: 'API access',
-      whitelabel: 'White-label options'
+      workflows: 'Custom AI Workflows'
     },
     included: [
-      'agents', 'tasks', 'integrations', 'support', 'uptime', 'users', 
-      'storage', 'analytics', 'workflows', 'customization', 'api', 'whitelabel'
+      'setup', 'leadCapture', 'autoFollowUp', 'crmIntegration', 'aiMarketing', 'support', 'analytics', 'users', 'uptime', 'customization', 'workflows'
     ],
     excluded: [],
-    cta: 'Start Free Trial',
+    cta: 'Get Started',
     badge: 'Most Popular'
   },
   {
     id: 'enterprise',
-    name: 'Enterprise',
-    description: 'For large organizations requiring enterprise-grade features and support',
+    name: 'Enterprise AI Ops',
+    description: 'White-glove service with dedicated AI operations team',
     icon: Crown,
     price: {
-      monthly: 'Custom',
-      annually: 'Custom'
+      monthly: 2599,
+      setup: 3000
     },
     popular: false,
     features: {
-      agents: 'Unlimited AI Agents',
-      tasks: 'Unlimited monthly tasks',
-      integrations: 'Unlimited integrations',
-      support: '24/7 dedicated support',
-      uptime: '99.99% SLA',
+      setup: '$3,000 one-time setup',
+      leadCapture: 'AI Lead Capture & Qualification',
+      autoFollowUp: 'Enterprise Follow-Up Systems',
+      crmIntegration: 'Full CRM Integration',
+      aiMarketing: 'Complete AI Marketing Suite',
+      support: '24/7 Dedicated AI Operations Team',
+      analytics: 'Enterprise Analytics & AI Insights',
       users: 'Unlimited team members',
-      storage: 'Unlimited data storage',
-      analytics: 'Enterprise analytics',
-      workflows: 'Enterprise workflows',
+      uptime: '99.99% SLA',
       customization: 'Complete customization',
+      workflows: 'Enterprise AI Workflows',
+      whitelabel: 'White-label options',
       api: 'Premium API access',
-      whitelabel: 'Full white-labeling',
-      onpremise: 'On-premise deployment',
-      sso: 'SSO integration',
-      compliance: 'SOC 2, HIPAA compliance'
+      compliance: 'SOC 2 & GDPR compliance'
     },
     included: [
-      'agents', 'tasks', 'integrations', 'support', 'uptime', 'users',
-      'storage', 'analytics', 'workflows', 'customization', 'api', 
-      'whitelabel', 'onpremise', 'sso', 'compliance'
+      'setup', 'leadCapture', 'autoFollowUp', 'crmIntegration', 'aiMarketing', 'support', 'analytics', 'users', 'uptime', 'customization', 'workflows', 'whitelabel', 'api', 'compliance'
     ],
     excluded: [],
     cta: 'Contact Sales',
@@ -107,30 +101,29 @@ const pricingPlans = [
 ]
 
 const featureDescriptions = {
-  agents: 'Number of AI agents you can deploy',
-  tasks: 'Automated tasks processed per month',
-  integrations: 'Third-party system connections',
+  setup: 'One-time setup and deployment fee',
+  leadCapture: 'AI-powered lead capture and qualification system',
+  autoFollowUp: 'Automated follow-up sequences and nurturing',
+  crmIntegration: 'Integration with your existing CRM',
+  aiMarketing: 'AI-powered marketing content and campaigns',
   support: 'Customer support level and response time',
-  uptime: 'Service level agreement for availability',
-  users: 'Team members who can access the platform',
-  storage: 'Data storage capacity for your workflows',
   analytics: 'Reporting and performance insights',
-  workflows: 'Workflow templates and customization options',
-  customization: 'Ability to customize agent behavior and UI',
-  api: 'Programmatic access to platform features',
+  users: 'Team members who can access the platform',
+  uptime: 'Service level agreement for availability',
+  customization: 'Customization level of AI systems',
+  workflows: 'Custom AI workflow creation and automation',
   whitelabel: 'Brand the platform with your company identity',
-  onpremise: 'Deploy on your own infrastructure',
-  sso: 'Single sign-on integration with your identity provider',
+  api: 'Programmatic access to platform features',
   compliance: 'Enterprise security and compliance certifications'
 }
 
 const additionalFeatures = [
-  'Free 30-day trial on all plans',
-  'No setup fees or hidden costs',
-  'Cancel anytime with 30-day notice',
-  'Migration assistance included',
-  'Training and onboarding support',
-  'Regular feature updates and improvements'
+  '90-day money-back guarantee',
+  'Full onboarding and training included',
+  'Dedicated account manager',
+  'Regular optimization and updates',
+  'Bank-grade security & compliance',
+  'Done-for-you AI system installation'
 ]
 
 export function PricingSection() {
@@ -163,41 +156,12 @@ export function PricingSection() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         )}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Simple, Transparent{' '}
+            Transparent{' '}
             <span className="bg-gradient-to-r from-purple-600 to-purple-700 bg-clip-text text-transparent">Pricing</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
-            Choose the plan that fits your business needs. All plans include our core AI agent capabilities with no hidden fees.
+            Choose the AI system that fits your business. All plans include professional setup, training, and dedicated support. No hidden fees.
           </p>
-
-          {/* Billing toggle */}
-          <div className="inline-flex items-center bg-white dark:bg-gray-900 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
-            <button
-              onClick={() => setBillingCycle('monthly')}
-              className={cn(
-                'px-6 py-2 rounded-md text-sm font-medium transition-all duration-200',
-                billingCycle === 'monthly'
-                  ? 'bg-purple-600 text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-              )}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle('annually')}
-              className={cn(
-                'px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 relative',
-                billingCycle === 'annually'
-                  ? 'bg-purple-600 text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-              )}
-            >
-              Annually
-              <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
-                Save 20%
-              </span>
-            </button>
-          </div>
         </div>
 
         {/* Pricing cards */}
@@ -208,17 +172,16 @@ export function PricingSection() {
           {pricingPlans.map((plan) => {
             const Icon = plan.icon
             const isHovered = hoveredPlan === plan.id
-            const price = typeof plan.price[billingCycle] === 'number' 
-              ? plan.price[billingCycle] 
-              : plan.price[billingCycle]
+            const monthlyPrice = plan.price.monthly
+            const setupPrice = plan.price.setup
 
             return (
               <div
                 key={plan.id}
                 className={cn(
                   'relative transition-all duration-300 cursor-pointer bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700',
-                  plan.popular 
-                    ? 'ring-2 ring-purple-500 ring-offset-4 scale-105 lg:scale-110' 
+                  plan.popular
+                    ? 'ring-2 ring-purple-500 ring-offset-4 scale-105 lg:scale-110'
                     : 'hover:scale-105',
                   isHovered ? 'shadow-2xl' : ''
                 )}
@@ -229,8 +192,8 @@ export function PricingSection() {
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <span className={cn(
                       'px-4 py-1 rounded-full text-sm font-semibold',
-                      plan.popular 
-                        ? 'bg-purple-600 text-white' 
+                      plan.popular
+                        ? 'bg-purple-600 text-white'
                         : 'bg-gray-800 text-white'
                     )}>
                       {plan.badge}
@@ -243,8 +206,8 @@ export function PricingSection() {
                   <div className="text-center">
                     <div className={cn(
                       'inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 transition-all duration-300',
-                      plan.popular 
-                        ? 'bg-purple-600 text-white scale-110' 
+                      plan.popular
+                        ? 'bg-purple-600 text-white scale-110'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                     )}>
                       <Icon size={24} />
@@ -259,27 +222,17 @@ export function PricingSection() {
 
                   {/* Pricing */}
                   <div className="text-center">
-                    {typeof price === 'number' ? (
-                      <>
-                        <div className="flex items-baseline justify-center">
-                          <span className="text-4xl font-bold text-gray-900 dark:text-white">
-                            ${price}
-                          </span>
-                          <span className="text-gray-600 dark:text-gray-400 ml-2">
-                            /{billingCycle === 'monthly' ? 'month' : 'year'}
-                          </span>
-                        </div>
-                        {billingCycle === 'annually' && typeof plan.price.monthly === 'number' && (
-                          <div className="text-sm text-green-600 dark:text-green-400 mt-1">
-                            Save ${(plan.price.monthly * 12) - (price * 12)}/year
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <div className="text-4xl font-bold text-gray-900 dark:text-white">
-                        {price}
-                      </div>
-                    )}
+                    <div className="flex items-baseline justify-center">
+                      <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                        ${monthlyPrice}
+                      </span>
+                      <span className="text-gray-600 dark:text-gray-400 ml-2">
+                        /month
+                      </span>
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      + ${setupPrice} setup fee
+                    </div>
                   </div>
 
                   {/* Features */}

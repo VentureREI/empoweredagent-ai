@@ -2,19 +2,20 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { 
-  Workflow, 
-  BarChart3, 
-  Zap, 
-  Shield, 
-  Bot, 
-  MessageSquare, 
-  FileText, 
+import {
+  Workflow,
+  BarChart3,
+  Zap,
+  Shield,
+  Bot,
+  MessageSquare,
+  FileText,
   Calendar,
   ArrowRight,
   CheckCircle,
   Play,
-  Sparkles
+  Sparkles,
+  Video
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
@@ -35,11 +36,11 @@ const agentCategories = [
     description: 'Keep clients engaged throughout their journey'
   },
   {
-    id: 'transactions',
-    name: 'Transaction Management',
-    icon: FileText,
+    id: 'video',
+    name: 'Video Automation',
+    icon: Video,
     color: 'from-purple-500 to-primary-600',
-    description: 'Streamline deals from contract to closing'
+    description: 'Automated video content for listings and marketing'
   },
   {
     id: 'marketing',
@@ -93,25 +94,25 @@ const agents = {
       metrics: '80% open rates'
     }
   ],
-  transactions: [
+  video: [
     {
-      name: 'Transaction Coordinator Agent',
-      description: 'Manages deadlines, documents, and communications for smooth closings.',
-      features: ['Deadline tracking', 'Document management', 'Vendor coordination', 'Milestone alerts'],
-      metrics: '99% on-time closings',
+      name: 'Property Video Creator',
+      description: 'Automatically generates professional property tour videos from photos and descriptions.',
+      features: ['Automated video creation', 'Professional templates', 'Music and voiceover', 'Brand customization'],
+      metrics: '5x more engagement',
       popular: true
     },
     {
-      name: 'Contract Management Agent',
-      description: 'Tracks contract terms, contingencies, and important dates automatically.',
-      features: ['Contingency tracking', 'Date management', 'Terms monitoring', 'Alert system'],
-      metrics: '85% fewer delays'
+      name: 'Social Video Agent',
+      description: 'Creates social media video content optimized for different platforms.',
+      features: ['Platform optimization', 'Auto-captions', 'Trending hashtags', 'Performance tracking'],
+      metrics: '300% more views'
     },
     {
-      name: 'Commission Tracking Agent',
-      description: 'Monitors deal progress and calculates commissions in real-time.',
-      features: ['Deal pipeline', 'Commission calculation', 'Payment tracking', 'Financial reporting'],
-      metrics: '100% accurate tracking'
+      name: 'Client Video Messages',
+      description: 'Generates personalized video messages for client communication and follow-ups.',
+      features: ['Personalized scripts', 'AI avatar options', 'Bulk generation', 'Delivery scheduling'],
+      metrics: '85% response rate'
     }
   ],
   marketing: [
@@ -310,48 +311,6 @@ export function FeaturesSection() {
           ))}
         </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={itemVariants}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-3xl p-12 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-hero-pattern opacity-10" />
-            
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-4">
-                Need Something Custom for Your Market?
-              </h3>
-              <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-                Every market is different. Our team can build specialized AI agents tailored to your 
-                local market, niche, or unique business processes and integrate them with your existing tools.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
-                >
-                  <Bot className="w-5 h-5 mr-2" />
-                  Build Custom Solution
-                </Button>
-                
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  className="text-white border-white hover:bg-white hover:text-primary-600 px-8 py-4 text-lg font-semibold"
-                >
-                  View All Agents
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

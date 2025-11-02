@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
 import { SoloAgentHero } from '@/components/sections/solo-agent/SoloAgentHero'
 import { SoloAgentFeatures } from '@/components/sections/solo-agent/SoloAgentFeatures'
-import { ProductivityDashboard } from '@/components/sections/solo-agent/ProductivityDashboard'
-import { SoloAgentSuccessStories } from '@/components/sections/solo-agent/SoloAgentSuccessStories'
-import { SoloAgentPricing } from '@/components/sections/solo-agent/SoloAgentPricing'
+import { SoloAgentROICalculator } from '@/components/sections/solo-agent/SoloAgentROICalculator'
 import { SoloAgentCTA } from '@/components/sections/solo-agent/SoloAgentCTA'
 
 export const metadata: Metadata = {
@@ -35,9 +33,7 @@ export default function SoloAgentPage() {
     <div className="min-h-screen">
       <SoloAgentHero />
       <SoloAgentFeatures />
-      <ProductivityDashboard />
-      <SoloAgentSuccessStories />
-      <SoloAgentPricing />
+      <SoloAgentROICalculator />
       <SoloAgentCTA />
     </div>
   )

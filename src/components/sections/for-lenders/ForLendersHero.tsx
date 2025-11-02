@@ -1,44 +1,82 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ArrowRight, Play, Sparkles, Zap, Shield, BarChart3, Workflow, Bot } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { VideoModal } from '@/components/ui/VideoModal'
-import { LeadFormModal, LeadFormData } from '@/components/modals/LeadFormModal'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import {
+  Zap,
+  ArrowRight,
+  TrendingUp,
+  DollarSign,
+  Clock,
+  CheckCircle,
+  Sparkles,
+  BarChart3,
+  Target
+} from 'lucide-react'
+import { Button } from '@/components/ui/Button'
+import { LeadFormModal, LeadFormData } from '@/components/modals/LeadFormModal'
 
-const features = [
-  { icon: Zap, text: 'Lead Generation AI' },
-  { icon: Workflow, text: 'AI Automation Systems' },
-  { icon: BarChart3, text: 'AI Marketing Suite' },
+const typewriterPhrases = [
+  'Your AI-Powered Lending Operations Assistant',
+  'Automate Loan Processing & Approvals',
+  'Scale Your Lending Business Instantly',
+  'Close Loans Faster with AI Verification',
+  'Transform Lending Operations'
 ]
 
-const stats = [
-  { value: '2,500+', label: 'Real Estate Pros' },
-  { value: '10,000+', label: 'Daily Follow-Ups' },
-  { value: '300%', label: 'Productivity Boost' },
-  { value: '< 60s', label: 'Lead Response' },
+const lenderStats = [
+  {
+    label: 'Loans Processed',
+    value: 340,
+    suffix: '/month',
+    increment: 2,
+    icon: DollarSign,
+    color: 'text-green-600',
+    description: '+156% vs manual processing'
+  },
+  {
+    label: 'Time Saved',
+    value: 45,
+    suffix: ' hrs/week',
+    increment: 0.3,
+    icon: Clock,
+    color: 'text-blue-600',
+    description: 'Focus on relationships'
+  },
+  {
+    label: 'Approval Rate',
+    value: 94,
+    suffix: '%',
+    increment: 0.4,
+    icon: CheckCircle,
+    color: 'text-purple-600',
+    description: 'Faster decisioning'
+  },
+  {
+    label: 'Revenue Increase',
+    value: 245,
+    suffix: '%',
+    increment: 1.2,
+    icon: TrendingUp,
+    color: 'text-amber-600',
+    description: 'First year ROI'
+  }
 ]
 
-const trustedCompanies = [
-  { name: 'Keller Williams', logo: '/logos/techcorp.svg' },
-  { name: 'Re/Max', logo: '/logos/dataflow.svg' },
-  { name: 'HomeSmart', logo: '/logos/autosys.svg' },
-  { name: 'Real', logo: '/logos/cloudbase.svg' },
-  { name: 'EXP', logo: '/logos/innovateai.svg' },
-  { name: 'My Home Group', logo: '/logos/futurework.svg' },
+const benefits = [
+  { icon: Zap, text: 'Instant Loan Processing' },
+  { icon: BarChart3, text: 'Real-Time Analytics' },
+  { icon: Target, text: 'Smart Risk Assessment' },
 ]
 
-export function HeroSection() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+export function ForLendersHero() {
   const [isLeadModalOpen, setIsLeadModalOpen] = useState(false)
   const [typedText, setTypedText] = useState('')
+  const [displayedStats, setDisplayedStats] = useState(lenderStats.map(stat => ({ ...stat, currentValue: 0 })))
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
-  const fullText = 'AI Systems That Run Your Real-Estate Business While You Close More Deals'
+  const fullText = typewriterPhrases[0]
 
   useEffect(() => {
     if (isInView) {
@@ -56,22 +94,47 @@ export function HeroSection() {
     }
   }, [isInView, fullText])
 
+  // Animate stats
+  useEffect(() => {
+    if (!isInView) return
+
+    const animationDuration = 2000
+    const startTime = Date.now()
+
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / animationDuration, 1)
+
+      setDisplayedStats(
+        lenderStats.map((stat) => ({
+          ...stat,
+          currentValue: Math.floor(stat.value * progress)
+        }))
+      )
+
+      if (progress === 1) {
+        clearInterval(interval)
+      }
+    }, 50)
+
+    return () => clearInterval(interval)
+  }, [isInView])
+
   const handleLeadFormSubmit = (formData: LeadFormData) => {
     console.log('Lead form submitted:', formData)
-    // The modal handles the calendar view internally
   }
 
   return (
-    <section 
+    <section
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 hero-grid opacity-30" />
-      
+
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
         <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
       </div>
@@ -84,10 +147,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 bg-purple-600/20 text-purple-300 px-6 py-3 rounded-full text-sm font-medium mb-8 border border-purple-500/30 backdrop-blur-sm"
+            className="inline-flex items-center space-x-2 bg-green-600/20 text-green-300 px-6 py-3 rounded-full text-sm font-medium mb-8 border border-green-500/30 backdrop-blur-sm"
           >
             <Sparkles className="w-4 h-4" />
-            <span>AI Systems Built for Real Estate</span>
+            <span>New: AI-Powered Lending Automation</span>
             <ArrowRight className="w-4 h-4" />
           </motion.div>
 
@@ -111,7 +174,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
           >
-            EmpoweredAgent.ai installs and manages your lead generation, automation, and marketing systems — done-for-you and optimized for real ROI.
+            Transform your lending operations with intelligent automation. Process loans faster, approve more confidently, and grow your business exponentially.
           </motion.p>
 
           {/* Feature Pills */}
@@ -121,16 +184,16 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon
+            {benefits.map((benefit, index) => {
+              const IconComponent = benefit.icon
               return (
                 <div
                   key={index}
                   className="flex items-center space-x-2 bg-white dark:bg-dark-800 px-4 py-2 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-purple transition-all duration-300 hover:scale-105"
                 >
-                  <IconComponent className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+                  <IconComponent className="w-4 h-4 text-green-600 dark:text-green-400" />
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {feature.text}
+                    {benefit.text}
                   </span>
                 </div>
               )
@@ -144,25 +207,22 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
-            <Link href="/pricing">
-              <Button
-                size="lg"
-                className="text-lg px-8 py-4 shadow-lg hover:shadow-purple"
-              >
-                <Bot className="w-5 h-5 mr-2" />
-                <span>Get Started</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-lg px-8 py-4 shadow-lg hover:shadow-purple"
+              onClick={() => setIsLeadModalOpen(true)}
+            >
+              <Zap className="w-5 h-5 mr-2" />
+              <span>Get Started</span>
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
 
             <Button
               variant="ghost"
               size="lg"
               className="text-lg px-8 py-4 border border-white/20 hover:bg-white/10 text-white"
-              onClick={() => setIsLeadModalOpen(true)}
             >
-              <Play className="w-5 h-5 mr-2" />
-              Book a Demo
+              Watch Demo
             </Button>
           </motion.div>
 
@@ -173,39 +233,25 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 1.0 }}
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
           >
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                  {stat.value}
+            {displayedStats.map((stat, index) => {
+              const Icon = stat.icon
+              return (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <Icon className={`w-6 h-6 ${stat.color} mr-2`} />
+                  </div>
+                  <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                    {stat.currentValue}{stat.suffix}
+                  </div>
+                  <div className="text-sm text-gray-400 font-medium mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    {stat.description}
+                  </div>
                 </div>
-                <div className="text-sm text-white font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Trusted By Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="text-center"
-          >
-            <p className="text-sm text-white mb-8 font-medium">
-              Trusted by real estate professionals nationwide
-            </p>
-            
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 hover:opacity-80 transition-opacity">
-              {trustedCompanies.map((company, index) => (
-                <div
-                  key={index}
-                  className="h-8 w-24 bg-white rounded flex items-center justify-center text-xs font-semibold text-black"
-                >
-                  {company.name}
-                </div>
-              ))}
-            </div>
+              )
+            })}
           </motion.div>
 
           {/* Value Propositions */}
@@ -216,51 +262,43 @@ export function HeroSection() {
             className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
           >
             <div className="text-center p-6 bg-white dark:bg-dark-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-purple transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Deploy in Minutes
+                Instant Deployment
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                Get started with pre-built AI agents and see results immediately
+                Get your lending AI live in minutes with pre-built loan processing workflows
               </p>
             </div>
 
             <div className="text-center p-6 bg-white dark:bg-dark-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-purple transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Enterprise Ready
+                Full Compliance
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                Bank-grade security with SOC 2 compliance and data protection
+                Bank-grade security with regulatory compliance and complete audit trails
               </p>
             </div>
 
             <div className="text-center p-6 bg-white dark:bg-dark-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-purple transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Measurable ROI
+                Rapid ROI
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                Track performance and see up to 300% ROI in the first quarter
+                See up to 245% ROI in your first year with instant loan processing automation
               </p>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Video Modal */}
-      <VideoModal
-        isOpen={isVideoModalOpen}
-        onClose={() => setIsVideoModalOpen(false)}
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with actual video
-        title="EmpoweredAgent.ai Demo"
-      />
 
       {/* Lead Form Modal */}
       <LeadFormModal

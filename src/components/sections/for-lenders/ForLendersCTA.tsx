@@ -2,17 +2,11 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import {
-  ArrowRight,
-  CheckCircle,
-  Zap,
-  Shield,
-  TrendingUp
-} from 'lucide-react'
+import { ArrowRight, Zap, Shield, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { LeadFormModal, LeadFormData } from '@/components/modals/LeadFormModal'
 
-export function SoloAgentCTA() {
+export function ForLendersCTA() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
@@ -26,7 +20,7 @@ export function SoloAgentCTA() {
     {
       icon: Zap,
       title: 'Deploy in Days',
-      description: 'Not months. Get up and running with your AI assistant instantly.'
+      description: 'Not months. Get up and running with your lending AI instantly.'
     },
     {
       icon: Shield,
@@ -36,7 +30,7 @@ export function SoloAgentCTA() {
     {
       icon: TrendingUp,
       title: 'Measurable ROI',
-      description: 'See results in your first month with 240% average first-year ROI.'
+      description: 'See results in your first month with 245% average first-year ROI.'
     }
   ]
 
@@ -47,7 +41,7 @@ export function SoloAgentCTA() {
 
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
         <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
       </div>
@@ -61,10 +55,10 @@ export function SoloAgentCTA() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Solo Practice?
+            Ready to Transform Your Lending Operations?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of solo agents who are closing more deals, working fewer hours, and earning significantly more with AI automation.
+            Join leading lenders who are processing more loans, making better decisions, and growing faster with AI automation.
           </p>
 
           {/* CTA Buttons */}
@@ -79,7 +73,7 @@ export function SoloAgentCTA() {
               className="text-lg px-8 py-4 shadow-lg hover:shadow-purple"
               onClick={() => setIsModalOpen(true)}
             >
-              <span>Get Started Today</span>
+              <span>Start Free Trial</span>
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
 
@@ -88,7 +82,7 @@ export function SoloAgentCTA() {
               size="lg"
               className="text-lg px-8 py-4 border border-white/20 hover:bg-white/10 text-white"
             >
-              View Pricing
+              Schedule Demo
             </Button>
           </motion.div>
         </motion.div>
@@ -110,7 +104,7 @@ export function SoloAgentCTA() {
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">
@@ -131,16 +125,11 @@ export function SoloAgentCTA() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 pt-12 border-t border-white/10 text-center"
         >
-          <p className="text-gray-400 text-sm mb-6">Trusted by real estate professionals nationwide</p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {[
-              { icon: CheckCircle, text: '90-Day Money Back Guarantee' },
-              { icon: Shield, text: 'Enterprise Security' },
-              { icon: TrendingUp, text: '240% Average ROI' }
-            ].map((item, index) => (
-              <div key={index} className="flex items-center space-x-2 text-gray-300">
-                <item.icon className="w-5 h-5 text-green-400" />
-                <span className="text-sm">{item.text}</span>
+          <p className="text-gray-400 text-sm mb-6">Trusted by lending institutions nationwide</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 hover:opacity-80 transition-opacity">
+            {['National Mortgage Association', 'Certified Secure Bank', 'SOC 2 Compliant', 'FDIC Approved'].map((badge, index) => (
+              <div key={index} className="text-sm font-semibold text-gray-300">
+                ✓ {badge}
               </div>
             ))}
           </div>

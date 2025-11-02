@@ -7,18 +7,18 @@ import { NewsletterSection } from '@/components/sections/NewsletterSection'
 import { StatsSection } from '@/components/sections/StatsSection'
 
 export const metadata: Metadata = {
-  title: 'Intelligent AI Agents for Business Automation',
-  description: 'Transform your workflow with AI agents that automate tasks, analyze data, and integrate seamlessly with your existing tools. Built for the future of work.',
+  title: 'Empower your real estate business with AI that works',
+  description: 'Lead engagement, productivity, and automation built for real estate pros.',
   openGraph: {
-    title: 'EmpoweredAgent.ai - Intelligent AI Agents for Business Automation',
-    description: 'Transform your workflow with AI agents that automate tasks, analyze data, and integrate seamlessly with your existing tools.',
+    title: 'EmpoweredAgent.ai - Real Estate AI That Works',
+    description: 'Lead engagement, productivity, and automation built for real estate pros.',
     type: 'website',
     url: 'https://empoweredagent.ai',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EmpoweredAgent.ai - Intelligent AI Agents',
-    description: 'Transform your workflow with AI agents that automate tasks, analyze data, and integrate seamlessly.',
+    title: 'EmpoweredAgent.ai - Real Estate AI',
+    description: 'Lead engagement, productivity, and automation built for real estate pros.',
   },
 }
 

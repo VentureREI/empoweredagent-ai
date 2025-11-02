@@ -4,7 +4,7 @@ import TeamFeatures from '@/components/sections/real-estate-team/TeamFeatures'
 import TeamDashboard from '@/components/sections/real-estate-team/TeamDashboard'
 import TeamCollaboration from '@/components/sections/real-estate-team/TeamCollaboration'
 import TeamSuccessStories from '@/components/sections/real-estate-team/TeamSuccessStories'
-import TeamPricing from '@/components/sections/real-estate-team/TeamPricing'
+import { TeamROICalculator } from '@/components/sections/real-estate-team/TeamROICalculator'
 import TeamCTA from '@/components/sections/real-estate-team/TeamCTA'
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function RealEstateTeamPage() {
       <TeamDashboard />
       <TeamCollaboration />
       <TeamSuccessStories />
-      <TeamPricing />
+      <TeamROICalculator />
       <TeamCTA />
     </div>
   )

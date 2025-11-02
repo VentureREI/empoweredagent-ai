@@ -1,0 +1,196 @@
+AI AGENT CONTEXT DOCUMENT
+==================================================
+
+Generated: 2025-10-09 10:54:01
+Project: EmpoweredAgent.ai Real Estate Platform
+Total Files: 146
+Total Size: 1,720,292 bytes (1680.0 KB)
+
+PROJECT STRUCTURE OVERVIEW:
+------------------------------
+
+📁 app/ (33 files)
+  - .DS_Store (6148 bytes)
+  - page.tsx (2188 bytes)
+  - page.tsx (9172 bytes)
+  - page.tsx (820 bytes)
+  - .DS_Store (6148 bytes)
+  - route.ts (1425 bytes)
+  - route.ts (5413 bytes)
+  - route.ts (581 bytes)
+  - route.ts (13579 bytes)
+  - route.ts (7370 bytes)
+  - page.tsx (2073 bytes)
+  - page.tsx (1540 bytes)
+  - page.tsx (1002 bytes)
+  - page.tsx (2285 bytes)
+  - page.tsx (2128 bytes)
+  - page.tsx (2143 bytes)
+  - global-errors.tsx (5661 bytes)
+  - globals.css (8457 bytes)
+  - page.tsx (1233 bytes)
+  - layout.tsx (2504 bytes)
+  - manifest.ts (825 bytes)
+  - not-found.tsx (6160 bytes)
+  - page.tsx (1515 bytes)
+  - page.tsx (785 bytes)
+  - page.tsx (1052 bytes)
+  - robot.ts (861 bytes)
+  - sitemap.ts (3619 bytes)
+  - page.tsx (1469 bytes)
+  - page.tsx (862 bytes)
+  - page.tsx (925 bytes)
+  - page.tsx (1955 bytes)
+  - page.tsx (1949 bytes)
+  - page.tsx (1512 bytes)
+
+📁 components/ (98 files)
+  - .DS_Store (6148 bytes)
+  - Analytics.tsx (2435 bytes)
+  - NProgress.tsx (3731 bytes)
+  - Footer.tsx (11143 bytes)
+  - Header.tsx (11843 bytes)
+  - ContactModal.tsx (16645 bytes)
+  - LeadFormModal.tsx (14246 bytes)
+  - providers.tsx (114 bytes)
+  - ThemeProviders.tsx (2172 bytes)
+  - AboutHeroSection.tsx (5938 bytes)
+  - ApproachSection.tsx (5739 bytes)
+  - ContactFormSection.tsx (15834 bytes)
+  - ContactHeroSection.tsx (7645 bytes)
+  - ContactInfoSection.tsx (14571 bytes)
+  - DELETE - IntegrationsSection.tsx (22234 bytes)
+  - DELETE-ProblemSolutionSection.tsx (11485 bytes)
+  - DELTE - ProcessCTASection.tsx (3305 bytes)
+  - FAQSection.tsx (19879 bytes)
+  - FeaturesSection.tsx (13636 bytes)
+  - HeroSection.tsx (12228 bytes)
+  - MethodologySection.tsx (4549 bytes)
+  - MissionSection.tsx (10152 bytes)
+  - NewsletterSection.tsx (13347 bytes)
+  - PricingSection.tsx (13445 bytes)
+  - ProcessCTASection.tsx (3305 bytes)
+  - ProcessHeroSection.tsx (4165 bytes)
+  - ProcessSection.tsx (13534 bytes)
+  - ProductsGridSection.tsx (22413 bytes)
+  - ProductsHeroSection.tsx (8784 bytes)
+  - StatsSection.tsx (9850 bytes)
+  - TeamSection.tsx (13268 bytes)
+  - TestimonialsSection.tsx (15031 bytes)
+  - TimelineSection.tsx (13160 bytes)
+  - WorkflowStepsSection.tsx (7822 bytes)
+  - AboutHeroSection.tsx (7677 bytes)
+  - MissionSection.tsx (9070 bytes)
+  - CaseStudiesCTA.tsx (18352 bytes)
+  - CaseStudiesHero.tsx (16210 bytes)
+  - CaseStudiesShowcase.tsx (29689 bytes)
+  - CaseStudyViewer.tsx (30132 bytes)
+  - IndustryInsights.tsx (23984 bytes)
+  - MetricsVisualization.tsx (21526 bytes)
+  - CleanROICalculator.tsx (11969 bytes)
+  - ComprehensiveROICalculator.tsx (30243 bytes)
+  - ImprovedROICalculator.tsx (17472 bytes)
+  - UnifiedROICalculator.tsx (15140 bytes)
+  - AgentFilter.tsx (11383 bytes)
+  - AgentGalleryHero.tsx (7351 bytes)
+  - AgentGrid.tsx (7865 bytes)
+  - AgentShowcase.tsx (8338 bytes)
+  - CustomAgentsCTA.tsx (11757 bytes)
+  - CustomAgentsHero.tsx (10970 bytes)
+  - ProcessOverview.tsx (11781 bytes)
+  - ROICalculator.tsx (18046 bytes)
+  - AnalyticsCTA.tsx (15812 bytes)
+  - AnalyticsHero.tsx (12959 bytes)
+  - AnalyticsROICalculator.tsx (20211 bytes)
+  - AnalyticsShowcase.tsx (13138 bytes)
+  - DataVisualizationBuilder.tsx (23777 bytes)
+  - IntegrationBuilder.tsx (23793 bytes)
+  - IntegrationCTA.tsx (18107 bytes)
+  - IntegrationHero.tsx (16095 bytes)
+  - IntegrationROICalculator.tsx (24220 bytes)
+  - IntegrationShowcase.tsx (20079 bytes)
+  - AgentManagement.tsx (22895 bytes)
+  - BrokerageAnalytics.tsx (21937 bytes)
+  - BrokerageCTA.tsx (15611 bytes)
+  - BrokerageFeatures.tsx (15370 bytes)
+  - BrokerageHero.tsx (17150 bytes)
+  - BrokeragePricing.tsx (24731 bytes)
+  - BrokerageROICalculator.tsx (30574 bytes)
+  - BrokerageSuccessStories.tsx (20448 bytes)
+  - TeamCTA.tsx (12447 bytes)
+  - TeamCollaboration.tsx (26651 bytes)
+  - TeamDashboard.tsx (29351 bytes)
+  - TeamFeatures.tsx (23685 bytes)
+  - TeamHero.tsx (22864 bytes)
+  - TeamPricing.tsx (17260 bytes)
+  - TeamROICalculator.tsx (28478 bytes)
+  - TeamSuccessStories.tsx (29940 bytes)
+  - ProductivityDashboard.tsx (23383 bytes)
+  - SoloAgentCTA.tsx (24319 bytes)
+  - SoloAgentFeatures.tsx (23001 bytes)
+  - SoloAgentHero.tsx (19880 bytes)
+  - SoloAgentPricing.tsx (27226 bytes)
+  - SoloAgentROICalculator.tsx (23047 bytes)
+  - SoloAgentSuccessStories.tsx (27519 bytes)
+  - WorkflowBuilder.tsx (18438 bytes)
+  - WorkflowCTA.tsx (13950 bytes)
+  - WorkflowHero.tsx (10519 bytes)
+  - WorkflowROICalculator.tsx (16911 bytes)
+  - WorkflowShowcase.tsx (12317 bytes)
+  - AgentCard.tsx (10932 bytes)
+  - Button.tsx (3047 bytes)
+  - Card.tsx (3040 bytes)
+  - DELETE - ThemeToggle.tsx (2343 bytes)
+  - Logo.tsx (4036 bytes)
+  - VideoModal.tsx (3327 bytes)
+
+📁 data/ (3 files)
+  - analyticsData.ts (27745 bytes)
+  - realEstateAgents.ts (10295 bytes)
+  - workflowAutomations.ts (21558 bytes)
+
+📁 hooks/ (1 files)
+  - useMarketData.ts (2630 bytes)
+
+📁 lib/ (8 files)
+  - .DS_Store (6148 bytes)
+  - agents.ts (10701 bytes)
+  - GHLIntegration.ts (12894 bytes)
+  - e2a-overview.ts (1527 bytes)
+  - onboarding.ts (1788 bytes)
+  - recruiting-faq.ts (1970 bytes)
+  - tech-stack.ts (1736 bytes)
+  - utils.ts (6167 bytes)
+
+📁 root/ (1 files)
+  - .DS_Store (6148 bytes)
+
+📁 types/ (2 files)
+  - index.ts (3418 bytes)
+  - integrations.ts (12639 bytes)
+
+
+FILE TYPE SUMMARY:
+--------------------
+.tsx: 119 files
+.ts: 21 files
+no extension: 5 files
+.css: 1 files
+
+
+KEY COMPONENTS (for AI reference):
+-----------------------------------
+• This is a Next.js React application for real estate AI platform
+• Main pages: Solo Agent, Real Estate Team, Brokerage solutions
+• Components are organized in /components/sections/ by page type
+• Uses TypeScript, Tailwind CSS for styling
+• ROI calculators and pricing components recently modified
+• App routing structure follows Next.js 13+ app directory pattern
+
+USAGE INSTRUCTIONS FOR AI AGENTS:
+-----------------------------------
+1. Reference the backup file for complete source code
+2. Use this context for understanding project structure
+3. Focus on components in /components/sections/ for UI changes
+4. Page files are in /app/ directory following Next.js routing
+5. All pricing components have been removed as of last update

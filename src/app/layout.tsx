@@ -7,10 +7,10 @@ import { Analytics } from '@/components/Analytics'
 
 export const metadata: Metadata = {
   title: {
-    default: 'EmpoweredAgent.ai - Intelligent AI Agents for Business Automation',
+    default: 'EmpoweredAgent.ai - Real Estate AI That Works',
     template: '%s | EmpoweredAgent.ai'
   },
-  description: 'Transform your workflow with AI agents that automate tasks, analyze data, and integrate seamlessly with your existing tools. Built for the future of work.',
+  description: 'Lead engagement, productivity, and automation built for real estate pros.',
   keywords: [
     'AI agents',
     'business automation',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://empoweredagent.ai',
-    title: 'EmpoweredAgent.ai - Intelligent AI Agents for Business Automation',
-    description: 'Transform your workflow with AI agents that automate tasks, analyze data, and integrate seamlessly with your existing tools.',
+    title: 'EmpoweredAgent.ai - Real Estate AI That Works',
+    description: 'Lead engagement, productivity, and automation built for real estate pros.',
     siteName: 'EmpoweredAgent.ai',
     images: [
       {
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EmpoweredAgent.ai - Intelligent AI Agents',
-    description: 'Transform your workflow with AI agents that automate tasks, analyze data, and integrate seamlessly.',
+    title: 'EmpoweredAgent.ai - Real Estate AI',
+    description: 'Lead engagement, productivity, and automation built for real estate pros.',
     creator: '@empoweredagentai',
   },
   robots: {

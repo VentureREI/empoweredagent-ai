@@ -155,6 +155,44 @@ export function ProcessSection() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Benefits Section */}
+          <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-3xl p-12 border border-primary-200 dark:border-primary-800 mb-16"
+          >
+            <motion.h3
+              variants={itemVariants}
+              className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+            >
+              Why Our Process Works
+            </motion.h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {benefits.map((benefit, index) => {
+                const IconComponent = benefit.icon
+                return (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="text-center group"
+                  >
+                    <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      {benefit.title}
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      {benefit.description}
+                    </p>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </motion.div>
+
           {/* Section Header */}
           <motion.div
             initial="hidden"
@@ -246,44 +284,6 @@ export function ProcessSection() {
                 </motion.div>
               )
             })}
-          </motion.div>
-
-          {/* Benefits Section */}
-          <motion.div
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={containerVariants}
-            className="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-3xl p-12 border border-primary-200 dark:border-primary-800 mb-16"
-          >
-            <motion.h3
-              variants={itemVariants}
-              className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
-            >
-              Why Our Process Works
-            </motion.h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => {
-                const IconComponent = benefit.icon
-                return (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    className="text-center group"
-                  >
-                    <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      {benefit.title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">
-                      {benefit.description}
-                    </p>
-                  </motion.div>
-                )
-              })}
-            </div>
           </motion.div>
 
           {/* CTA Section */}

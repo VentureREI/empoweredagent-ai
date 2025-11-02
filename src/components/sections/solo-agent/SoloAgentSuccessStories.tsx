@@ -365,24 +365,11 @@ export function SoloAgentSuccessStories() {
             Real Solo Agent Success Stories
           </motion.div>
 
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-8"
-          >
-            Solo Agents Achieving
-            <span className="block text-gradient bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Extraordinary Results
-            </span>
-          </motion.h2>
-
           <motion.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-3xl mx-auto mb-12"
           >
-            Discover how independent agents across the country are using AI to
-            <span className="text-purple-600 font-semibold"> double their income</span>,
-            <span className="text-blue-600 font-semibold"> work fewer hours</span>, and
-            <span className="text-cyan-600 font-semibold"> dominate their markets</span>.
+            See how solo agents are using AI to double their income, work fewer hours, and dominate their markets.
           </motion.p>
         </motion.div>
 

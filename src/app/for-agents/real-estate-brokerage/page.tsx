@@ -4,7 +4,7 @@ import BrokerageFeatures from '@/components/sections/real-estate-brokerage/Broke
 import BrokerageAnalytics from '@/components/sections/real-estate-brokerage/BrokerageAnalytics'
 import AgentManagement from '@/components/sections/real-estate-brokerage/AgentManagement'
 import BrokerageSuccessStories from '@/components/sections/real-estate-brokerage/BrokerageSuccessStories'
-import BrokeragePricing from '@/components/sections/real-estate-brokerage/BrokeragePricing'
+import { BrokerageROICalculator } from '@/components/sections/real-estate-brokerage/BrokerageROICalculator'
 import BrokerageCTA from '@/components/sections/real-estate-brokerage/BrokerageCTA'
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function RealEstateBrokeragePage() {
       <BrokerageAnalytics />
       <AgentManagement />
       <BrokerageSuccessStories />
-      <BrokeragePricing />
+      <BrokerageROICalculator />
       <BrokerageCTA />
     </div>
   )

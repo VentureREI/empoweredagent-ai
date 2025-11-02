@@ -42,7 +42,7 @@ const navigationItems = [
     ]
   },
   {
-    title: 'For Agents',
+    title: 'Use Cases',
     items: [
       {
         title: 'Solo Agent',
@@ -61,6 +61,12 @@ const navigationItems = [
         description: 'Enterprise AI solutions for large brokerages and franchises',
         href: '/for-agents/real-estate-brokerage',
         icon: Settings
+      },
+      {
+        title: 'For Lenders',
+        description: 'AI-powered automation for lending institutions and loan officers',
+        href: '/for-agents/for-lenders',
+        icon: BarChart3
       }
     ]
   },
