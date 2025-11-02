@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import TeamFeatures from '@/components/sections/real-estate-team/TeamFeatures'
-import TeamDashboard from '@/components/sections/real-estate-team/TeamDashboard'
 import TeamCollaboration from '@/components/sections/real-estate-team/TeamCollaboration'
 import TeamSuccessStories from '@/components/sections/real-estate-team/TeamSuccessStories'
 import { TeamROICalculator } from '@/components/sections/real-estate-team/TeamROICalculator'
@@ -34,7 +33,6 @@ export default function RealEstateTeamPage() {
   return (
     <div className="min-h-screen">
       <TeamFeatures />
-      <TeamDashboard />
       <TeamCollaboration />
       <TeamSuccessStories />
       <TeamROICalculator />
