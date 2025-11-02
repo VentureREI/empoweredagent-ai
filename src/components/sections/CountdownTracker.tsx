@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Clock } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 interface TimeLeft {
   days: number
@@ -17,6 +18,23 @@ export function CountdownTracker() {
     minutes: 0,
     seconds: 0,
   })
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    const element = document.getElementById('countdown-tracker')
+    if (element) observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -43,65 +61,70 @@ export function CountdownTracker() {
   }, [])
 
   return (
-    <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border border-amber-200 dark:border-amber-800/50 rounded-lg p-6 mb-8">
-      <div className="flex items-start space-x-4">
-        <div className="flex-shrink-0">
-          <Clock className="h-6 w-6 text-amber-600 dark:text-amber-400" />
-        </div>
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            Limited Time Introductory Pricing
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+    <div
+      id="countdown-tracker"
+      className={cn(
+        'bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 border border-purple-200 dark:border-purple-800/50 rounded-lg p-8 mb-16 transition-all duration-1000',
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      )}>
+      <div className="space-y-6">
+        <div>
+          <div className="flex items-center gap-3 mb-2">
+            <Clock className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Limited Time Introductory Pricing
+            </h3>
+          </div>
+          <p className="text-gray-700 dark:text-gray-300">
             Lock in special introductory rates for the next:
           </p>
+        </div>
 
-          <div className="grid grid-cols-4 gap-3">
-            {/* Days */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center border border-amber-200 dark:border-amber-800/50">
-              <div className="text-2xl md:text-3xl font-bold text-amber-600 dark:text-amber-400">
-                {timeLeft.days}
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-1">
-                Days
-              </div>
+        <div className="grid grid-cols-4 gap-4">
+          {/* Days */}
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-4 text-center border border-purple-200 dark:border-purple-800/50">
+            <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+              {timeLeft.days}
             </div>
-
-            {/* Hours */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center border border-amber-200 dark:border-amber-800/50">
-              <div className="text-2xl md:text-3xl font-bold text-amber-600 dark:text-amber-400">
-                {timeLeft.hours}
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-1">
-                Hours
-              </div>
-            </div>
-
-            {/* Minutes */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center border border-amber-200 dark:border-amber-800/50">
-              <div className="text-2xl md:text-3xl font-bold text-amber-600 dark:text-amber-400">
-                {timeLeft.minutes}
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-1">
-                Minutes
-              </div>
-            </div>
-
-            {/* Seconds */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center border border-amber-200 dark:border-amber-800/50">
-              <div className="text-2xl md:text-3xl font-bold text-amber-600 dark:text-amber-400">
-                {timeLeft.seconds}
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-1">
-                Seconds
-              </div>
+            <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">
+              Days
             </div>
           </div>
 
-          <p className="text-sm text-amber-700 dark:text-amber-300 mt-4">
-            ✨ Set up fees and monthly pricing locked in at current rates. Regular pricing will increase after this promotional period ends.
-          </p>
+          {/* Hours */}
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-4 text-center border border-purple-200 dark:border-purple-800/50">
+            <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+              {timeLeft.hours}
+            </div>
+            <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">
+              Hours
+            </div>
+          </div>
+
+          {/* Minutes */}
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-4 text-center border border-purple-200 dark:border-purple-800/50">
+            <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+              {timeLeft.minutes}
+            </div>
+            <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">
+              Minutes
+            </div>
+          </div>
+
+          {/* Seconds */}
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-4 text-center border border-purple-200 dark:border-purple-800/50">
+            <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+              {timeLeft.seconds}
+            </div>
+            <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">
+              Seconds
+            </div>
+          </div>
         </div>
+
+        <p className="text-sm text-purple-700 dark:text-purple-300">
+          ✨ Set up fees and monthly pricing locked in at current rates. Regular pricing will increase after this promotional period ends.
+        </p>
       </div>
     </div>
   )
