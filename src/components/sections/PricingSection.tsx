@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Check, X, Star, Zap, Crown, Building } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
+import { CountdownTracker } from './CountdownTracker'
 import { cn } from '@/lib/utils'
 
 const pricingPlans = [
@@ -163,6 +164,9 @@ export function PricingSection() {
             Choose the AI system that fits your business. All plans include professional setup, training, and dedicated support. No hidden fees.
           </p>
         </div>
+
+        {/* Countdown Tracker */}
+        <CountdownTracker />
 
         {/* Pricing cards */}
         <div className={cn(
