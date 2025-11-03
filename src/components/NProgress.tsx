@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import NProgressLib from 'nprogress'
 
@@ -104,53 +104,17 @@ export function NProgress() {
     }
   }, [pathname])
 
-  // Handle manual navigation events
+  // Track previous pathname to detect route changes
+  const previousPathnameRef = useRef(pathname)
+
+  // Handle back/forward navigation and route transitions
   useEffect(() => {
-    const handleStart = () => NProgressLib.start()
-    const handleComplete = () => NProgressLib.done()
-
-    // Listen for programmatic navigation
-    const originalPushState = window.history.pushState
-    const originalReplaceState = window.history.replaceState
-
-    window.history.pushState = function(...args) {
-      handleStart()
-      originalPushState.apply(window.history, args)
-      setTimeout(handleComplete, 100)
+    if (pathname !== previousPathnameRef.current) {
+      previousPathnameRef.current = pathname
+      // Complete the progress bar when pathname changes
+      NProgressLib.done()
     }
-
-    window.history.replaceState = function(...args) {
-      handleStart()
-      originalReplaceState.apply(window.history, args)
-      setTimeout(handleComplete, 100)
-    }
-
-    // Listen for back/forward navigation
-    window.addEventListener('popstate', handleStart)
-    
-    // Listen for link clicks
-    const handleLinkClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      const link = target.closest('a')
-      
-      if (link && link.href && link.href.startsWith(window.location.origin)) {
-        handleStart()
-        setTimeout(handleComplete, 100)
-      }
-    }
-
-    document.addEventListener('click', handleLinkClick)
-
-    return () => {
-      // Restore original methods
-      window.history.pushState = originalPushState
-      window.history.replaceState = originalReplaceState
-      
-      // Remove event listeners
-      window.removeEventListener('popstate', handleStart)
-      document.removeEventListener('click', handleLinkClick)
-    }
-  }, [])
+  }, [pathname])
 
   return null
 }
