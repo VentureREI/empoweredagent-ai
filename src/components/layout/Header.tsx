@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback, memo } from 'react'
 import Link from 'next/link'
 import { ChevronDown, Menu, X, Zap, Bot, Workflow, BarChart3, Settings, Users } from 'lucide-react'
 import { LeadFormModal, LeadFormData } from '@/components/modals/LeadFormModal'
@@ -80,32 +80,32 @@ const navigationItems = [
   }
 ]
 
-export function Header() {
+function HeaderContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const handleModalSubmit = (formData: LeadFormData) => {
+  const handleModalSubmit = useCallback((formData: LeadFormData) => {
     console.log('Lead form submitted:', formData)
     // Close modal and redirect to calendar
     setIsModalOpen(false)
     // Redirect to calendar page (we'll create this next)
     window.location.href = '/calendar'
-  }
+  }, [])
 
-  const handleDropdownEnter = (itemTitle: string) => {
+  const handleDropdownEnter = useCallback((itemTitle: string) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current)
     }
     setActiveDropdown(itemTitle)
-  }
+  }, [])
 
-  const handleDropdownLeave = () => {
+  const handleDropdownLeave = useCallback(() => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null)
     }, 150) // Small delay to allow moving to dropdown
-  }
+  }, [])
 
   // Clean up timeout on unmount
   useEffect(() => {
@@ -303,3 +303,5 @@ export function Header() {
     </>
   )
 }
+
+export const Header = memo(HeaderContent)

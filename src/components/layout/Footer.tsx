@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import Link from 'next/link'
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin, Youtube, ArrowRight, Heart, Zap } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
@@ -92,7 +93,7 @@ const contactInfo = [
   }
 ]
 
-export function Footer() {
+function FooterContent() {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -301,3 +302,5 @@ export function Footer() {
     </footer>
   )
 }
+
+export const Footer = memo(FooterContent)
