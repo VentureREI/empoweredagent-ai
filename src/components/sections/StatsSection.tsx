@@ -73,32 +73,33 @@ const stats = [
   }
 ]
 
-function Counter({ 
-  target, 
-  suffix = '', 
-  duration = 2000 
-}: { 
+function Counter({
+  target,
+  suffix = '',
+  duration = 2000
+}: {
   target: number
   suffix?: string
-  duration?: number 
+  duration?: number
 }) {
   const [count, setCount] = useState(0)
-  const [hasStarted, setHasStarted] = useState(false)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const startTimeRef = useRef<number | null>(null)
+  const hasStartedRef = useRef(false)
 
   useEffect(() => {
-    if (isInView && !hasStarted) {
-      setHasStarted(true)
-      let startTime: number
+    if (isInView && !hasStartedRef.current) {
+      hasStartedRef.current = true
+      startTimeRef.current = null
       let animationFrame: number
 
       const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime
-        const elapsed = currentTime - startTime
+        if (!startTimeRef.current) startTimeRef.current = currentTime
+        const elapsed = currentTime - startTimeRef.current!
         const progress = Math.min(elapsed / duration, 1)
-        
-        // Ease-out function for smooth animation
+
+        // Ease-out cubic function for smooth animation
         const easeOut = 1 - Math.pow(1 - progress, 3)
         const newCount = Math.floor(target * easeOut)
         setCount(newCount)
@@ -119,18 +120,7 @@ function Counter({
         }
       }
     }
-  }, [isInView, hasStarted, target, duration])
-
-  // Fallback: if animation hasn't started after 2 seconds, show target value
-  useEffect(() => {
-    const fallbackTimer = setTimeout(() => {
-      if (!hasStarted && count === 0) {
-        setCount(target)
-      }
-    }, 2000)
-
-    return () => clearTimeout(fallbackTimer)
-  }, [hasStarted, count, target])
+  }, [isInView, target, duration])
 
   return (
     <span ref={ref}>
