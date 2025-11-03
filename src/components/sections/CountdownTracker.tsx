@@ -45,9 +45,9 @@ export function CountdownTracker() {
     if (!mounted) return
 
     const calculateTimeLeft = () => {
-      // November 14th, 2024 at 10:00 AM PST
+      // November 14th, 2025 at 10:00 AM PST
       // PST is UTC-8
-      const launchDate = new Date('2024-11-14T10:00:00-08:00').getTime()
+      const launchDate = new Date('2025-11-14T10:00:00-08:00').getTime()
       const now = new Date().getTime()
       const distance = launchDate - now
 
